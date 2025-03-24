@@ -6,7 +6,7 @@ const AddCase = ({ onCaseAdded }) => {
     category: '',
     priority: 'Medium',
     status: 'Pending',
-    start_date: new Date().toISOString().split('T')[0],
+    start_date: new Date().toLocaleDateString('en-CA'),
     next_hearing: '',
     last_hearing: '',
   });
