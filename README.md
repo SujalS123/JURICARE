@@ -8,7 +8,7 @@ A full-stack application for managing and analyzing legal cases using AI-powered
 - Automated case prioritization based on category and pending years
 - Modern React frontend with Tailwind CSS
 - MongoDB database for case storage
-- RESTful API endpoints
+- FASK API endpoints
 
 ## Prerequisites
 
