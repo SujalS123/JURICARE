@@ -631,5 +631,11 @@ def complete_case(case_id):
         logging.error(f"Error completing case: {str(e)}")
         return jsonify({'error': str(e)}), 500
 
+# if __name__ == "__main__":
+#     app.run(debug=True) 
 if __name__ == "__main__":
-    app.run(debug=True) 
+    # Get port from environment variable or default to 5000
+    port = int(os.getenv('PORT', 5000))
+    # Set debug mode based on environment
+    debug = os.getenv('FLASK_ENV') == 'development'
+    app.run(host="0.0.0.0", port=port, debug=debug) 
