@@ -2,6 +2,9 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const userRoutes = require("./routes/userRoutes");
+const dotenv = require("dotenv");
+const asyncHandler = require("express-async-handler");
+dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 5001;
@@ -10,13 +13,20 @@ const PORT = process.env.PORT || 5001;
 app.use(express.json());
 app.use(cors());
 
-// Database connection
-mongoose.connect("mongodb://localhost:27017/myprojectdb", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
-.then(() => console.log("MongoDB connected"))
-.catch((error) => console.error("MongoDB connection error:", error));
+// Separate function for MongoDB connection
+const connectDB = asyncHandler(async () => {
+  try {
+    const connect = await mongoose.connect(process.env.MONGO_URI);
+
+    console.log("Database connected: ", connect.connection.name);
+  } catch (error) {
+    console.error("Error connecting to the database: ", error.message);
+    throw new Error("Failed to connect to the database");
+  }
+});
+
+// Call the connection function
+connectDB();
 
 // Routes
 app.use("/api", userRoutes);
