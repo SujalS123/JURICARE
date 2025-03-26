@@ -4,6 +4,8 @@ const cors = require("cors");
 const userRoutes = require("./routes/userRoutes");
 const dotenv = require("dotenv");
 const asyncHandler = require("express-async-handler");
+const bcrypt = require("bcryptjs");
+
 dotenv.config();
 
 const app = express();
