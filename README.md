@@ -114,14 +114,5 @@ Contributions are welcome! Feel free to open issues and pull requests.
 
 ---
 
-## 📄 License
-
-MIT License
-
----
-
-## 📞 Contact
-
-For queries, reach out to **Judicare Team**: [judicare@example.com](mailto:judicare@example.com)
-
+ 
 © 2025 Judicare. All rights reserved.
